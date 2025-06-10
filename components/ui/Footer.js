@@ -9,7 +9,10 @@ export const Footer = () => {
     <footer className={path !== "/" ? styles.footer : styles.hidden}>
       <div className={styles.footerDescription}>
         <h3>Galactica</h3>
-        <p>Explore the universe and beyond. Your journey to the stars starts here.</p>
+        <p>
+          Explore the universe and beyond. Your journey to the stars starts
+          here.
+        </p>
         <p>&copy; 2024 Galactica. All rights reserved.</p>
       </div>
       {/* TASK - React 1 week 2 */}
@@ -24,8 +27,6 @@ export const Footer = () => {
       </div> */}
       {/* Docs for the Link: https://nextjs.org/docs/pages/api-reference/components/link */}
 
-      {/* TASK - React 1 week 1 */}
-      {/* Add a new list item for LINKEDIN */}
       <div className={styles.footerLinks}>
         <h3>Follow us</h3>
         <ul className={styles.footerList}>
@@ -40,6 +41,9 @@ export const Footer = () => {
           </li>
           <li>
             <a href="https://google.com">On the streets at night</a>
+          </li>
+          <li>
+            <a href="https://linkedin.com">LinkedIn</a>
           </li>
           {/* TASK - React 1 week 2 */}
           {/* Create a <SocialMediaItem /> component and replace all of the list items! */}

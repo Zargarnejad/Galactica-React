@@ -3,3 +3,110 @@
   width: 100vw;
   height: 100vh;
 }
+
+.crewSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-image: url("/crew/background-crew-desktop.jpg");
+}
+
+.crewDescContainer {
+  padding-top: 1rem;
+}
+.crewDescContainer h2 {
+  padding-top: 1rem;
+}
+.crewDescription {
+  line-height: 1.5rem;
+  font-size: medium;
+}
+
+.crewImagesContainer {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+  gap: 2rem;
+}
+
+.crewTitle {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: small;
+  text-align: center;
+  color: black;
+}
+
+.crewSubtitle {
+  font-size: xx-small;
+  text-align: center;
+  color: black;
+}
+
+.crewCardDescription {
+  color: black;
+  font-size: 0.8rem;
+  line-height: normal;
+  padding: 1rem;
+  text-align: left;
+}
+
+.crewCard {
+  background-color: #ffffff;
+  width: 13rem;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 2px;
+  text-align: center;
+}
+.crewImage {
+  width: 13rem;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+.imageFrame {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+}
+.partnerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 3rem;
+}
+
+.partnerLogo {
+  width: 15rem;
+  padding: 2rem;
+}
+
+.partnerLogoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.valuesContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .valuesContainer {
+    grid-template-columns: 1fr;
+  }
+}
