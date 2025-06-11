@@ -43,6 +43,17 @@
   list-style-type: none;
 }
 
-.footerList li {
+.footerList li  {
   padding-block: var(--spacing-04);
+  list-style: none;
+}
+
+.listItem{
+  list-style: none;
+  line-height: 1.8rem;
+}
+.socialmediaIcon {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.4rem;
 }

@@ -24,13 +24,13 @@ export const Footer = () => {
       <div className={styles.pages}>
         <h3>Pages</h3>
         <ul>
-          <li>
+          <li className={styles.listItem}>
             <Link href="/about_us">About Us</Link>
           </li>
-          <li>
+          <li className={styles.listItem}>
             <Link href="/destination">Destination</Link>
           </li>
-          <li>
+          <li className={styles.listItem}>
             <Link href="/nasa_collaboration">NASA Collaboration</Link>
           </li>
         </ul>
