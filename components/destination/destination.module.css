@@ -1,4 +1,5 @@
 .app {
+  background-image:"url(../../public/destination/background-destination-desktop.jpg)" ;
   background-color: black;
   width: 100vw;
   height: 100vh;
