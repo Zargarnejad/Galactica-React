@@ -40,6 +40,7 @@ export const Navbar = () => {
           {/* title, link, isActive  */}
           {navbarItems.map((item, index) => (
             <NavItem
+              key={index}
               link={item.link}
               title={item.title}
               isActive={item.link === currentPath}

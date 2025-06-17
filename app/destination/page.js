@@ -17,8 +17,7 @@ export const Destinations = () => {
     // And the counter should update, how many planets are selected (numberOfPlanets)
     const alreadySelected = selectedPlanets.find((p) => p === name);
     if (alreadySelected) {
-      const newList = selectedPlanets.filter((p) => p !== name);
-      onAddPlanet(newList);
+      removeFromWishlist(name);
     } else {
       onAddPlanet([...selectedPlanets, name]);
     }
@@ -26,6 +25,11 @@ export const Destinations = () => {
     console.log(
       `You seleceted the following planet: ${name}, with the index of ${index}`
     );
+  };
+
+  const removeFromWishlist = (name) => {
+    const newList = selectedPlanets.filter((p) => p !== name);
+    onAddPlanet(newList);
   };
 
   return (
@@ -48,25 +52,22 @@ export const Destinations = () => {
           {/* STOP! - this is for week 3!*/}
           {/* TASK - React 1 week 3 */}
           {/* Import the AddWishlistItem react component */}
-          {/* <AddWishlistItem /> */}
+          <AddWishlistItem />
           {/* TASK - React 1 week 3 */}
           {/* Convert the list, so it is using selectedPlanets.map() to display the items  */}
           {/* Implement the "REMOVE" function */}
           {/* uncomment the following code snippet: */}
-          {/* 
+
           <h3>Your current wishlist</h3>
           <div className={styles.wishlistList}>
-            <PlanetWishlistItem 
-              name="europa"
-              onRemove={() => removeFromWishlist('europa')}
-              thumbnail="/destination/image-europa.png"
-            />
-            <PlanetWishlistItem 
-              name="europa"
-              onRemove={() => removeFromWishlist('europa')}
-              thumbnail="/destination/image-europa.png"
-            />
-          </div> */}
+            {selectedPlanets.map((pl) => (
+              <PlanetWishlistItem
+                name={pl}
+                onRemove={() => removeFromWishlist(pl)}
+                thumbnail={`/destination/image-${pl}.png`}
+              />
+            ))}
+          </div>
         </section>
         <section className="card">
           <h2>Possible destinations</h2>
