@@ -10,8 +10,6 @@ import { PlanetCard } from "./PlanetCard";
 export const Destinations = () => {
   const [selectedPlanets, onAddPlanet] = useState([]);
 
-  let isPlanetSelected = false;
-
   const onAddOrRemovePlanet = (name, index) => {
     // TASK - React 1 week 2
     // Implement this function
