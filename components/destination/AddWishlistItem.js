@@ -20,7 +20,7 @@ export const AddWishlistItem = ({ onAddWishlistItem }) => {
     // call the onAddWishlistItem here
 
     if (onAddWishlistItem) {
-      onAddWishlistItem(thumbnail, customWishlist);
+      onAddWishlistItem(customWishlist, thumbnail);
     }
 
     setCustomWishlist("");
