@@ -7,7 +7,6 @@ export function PlanetCard({
   isSelected,
   onAddOrRemovePlanet,
 }) {
-  
   return (
     <div className={styles.planetCard}>
       <img className={styles.planetThumbnail} src={thumbnail} alt="" />
@@ -19,7 +18,7 @@ export function PlanetCard({
       </div>
       <button
         className="roundButton"
-        onClick={() => onAddOrRemovePlanet(name, 0)}
+        onClick={() => onAddOrRemovePlanet(name, thumbnail)}
       >
         {isSelected ? "REMOVE" : "ADD PLANET"}
       </button>

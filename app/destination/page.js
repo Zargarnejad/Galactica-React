@@ -10,23 +10,27 @@ import { PlanetCard } from "./PlanetCard";
 export const Destinations = () => {
   const [selectedPlanets, onAddPlanet] = useState([]);
 
-  const onAddOrRemovePlanet = (name, index) => {
+  const onAddOrRemovePlanet = (name, thumbnail) => {
     // TASK - React 1 week 2
     // Implement this function
     // If you press the "ADD PLANET" the selected planet should display "SELECTED"
     // And the counter should update, how many planets are selected (numberOfPlanets)
-    const alreadySelected = selectedPlanets.find((p) => p === name);
+    const alreadySelected = selectedPlanets.find((p) => p.name === name);
     if (alreadySelected) {
-      const newList = selectedPlanets.filter((p) => p !== name);
-      onAddPlanet(newList);
+      removeFromWishlist(name);
     } else {
-      onAddPlanet([...selectedPlanets, name]);
+      addToWishList(name, thumbnail);
     }
 
-    console.log(
-      `You seleceted the following planet: ${name}, with the index of ${index}`
-    );
+    console.log(`You seleceted the following planet: ${name}`);
   };
+
+  const removeFromWishlist = (name) => {
+    onAddPlanet(selectedPlanets.filter((p) => p.name !== name));
+  };
+
+  const addToWishList = (name, thumbnail) =>
+    onAddPlanet([...selectedPlanets, { name, thumbnail }]);
 
   return (
     <div className="fullBGpicture">
@@ -48,25 +52,22 @@ export const Destinations = () => {
           {/* STOP! - this is for week 3!*/}
           {/* TASK - React 1 week 3 */}
           {/* Import the AddWishlistItem react component */}
-          {/* <AddWishlistItem /> */}
+          <AddWishlistItem onAddWishlistItem={addToWishList} />
           {/* TASK - React 1 week 3 */}
           {/* Convert the list, so it is using selectedPlanets.map() to display the items  */}
           {/* Implement the "REMOVE" function */}
           {/* uncomment the following code snippet: */}
-          {/* 
+
           <h3>Your current wishlist</h3>
           <div className={styles.wishlistList}>
-            <PlanetWishlistItem 
-              name="europa"
-              onRemove={() => removeFromWishlist('europa')}
-              thumbnail="/destination/image-europa.png"
-            />
-            <PlanetWishlistItem 
-              name="europa"
-              onRemove={() => removeFromWishlist('europa')}
-              thumbnail="/destination/image-europa.png"
-            />
-          </div> */}
+            {selectedPlanets.map((pl) => (
+              <PlanetWishlistItem
+                name={pl.name}
+                onRemove={() => removeFromWishlist(pl.name)}
+                thumbnail={pl.thumbnail}
+              />
+            ))}
+          </div>
         </section>
         <section className="card">
           <h2>Possible destinations</h2>
@@ -79,28 +80,28 @@ export const Destinations = () => {
             name="EUROPA"
             thumbnail="/destination/image-europa.png"
             description="Europa, one of Jupiter’s moons, is an icy world with a hidden ocean beneath its surface. This mysterious moon is a prime candidate for the search for extraterrestrial life, making it a thrilling destination for space explorers."
-            isSelected={selectedPlanets.indexOf("EUROPA") != -1}
+            isSelected={selectedPlanets.find((pl) => pl.name === "EUROPA")}
             onAddOrRemovePlanet={onAddOrRemovePlanet}
           />
           <PlanetCard
             name="Moon"
             thumbnail="/destination/image-moon.png"
             description="Our closest celestial neighbor, the Moon, is a silent witness to Earth's history. With its stunning craters and desolate landscapes, the Moon offers a unique glimpse into space exploration's past and future, making it a perfect destination for lunar adventurers."
-            isSelected={selectedPlanets.indexOf("Moon") != -1}
+            isSelected={selectedPlanets.find((pl) => pl.name === "Moon")}
             onAddOrRemovePlanet={onAddOrRemovePlanet}
           />
           <PlanetCard
             name="Mars"
             thumbnail="/destination/image-mars.png"
             description="Mars, the Red Planet, is a barren yet fascinating world with vast deserts, towering volcanoes, and the deepest canyon in the solar system. As humanity’s next frontier, Mars invites us to dream of colonization and the possibilities of life beyond Earth."
-            isSelected={selectedPlanets.indexOf("Mars") != -1}
+            isSelected={selectedPlanets.find((pl) => pl.name === "Mars")}
             onAddOrRemovePlanet={onAddOrRemovePlanet}
           />
           <PlanetCard
             name="Titan"
             thumbnail="/destination/image-titan.png"
             description="Titan, Saturn's largest moon, is a world of dense atmosphere and liquid methane lakes. This enigmatic moon is shrouded in a thick orange haze, concealing a landscape that is both alien and strangely familiar, beckoning explorers to uncover its secrets."
-            isSelected={selectedPlanets.indexOf("Titan") != -1}
+            isSelected={selectedPlanets.find((pl) => pl.name === "Titan")}
             onAddOrRemovePlanet={onAddOrRemovePlanet}
           />
         </section>

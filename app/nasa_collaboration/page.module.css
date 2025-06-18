@@ -4,9 +4,19 @@
   height: 100vh;
 }
 
-
 .nasaPicOfTheDayImg {
+  margin-top: 1.5rem;
   width: auto;
   height: 400px;
+}
 
+.roverContainer {
+  padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.roverImage {
+  margin-bottom: 2rem;
 }
